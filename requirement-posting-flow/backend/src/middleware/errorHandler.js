@@ -1,8 +1,8 @@
-import env from '../config/env.js';
+const isDev = process.env.NODE_ENV !== 'production';
 
 const errorHandler = (err, _req, res, _next) => {
   // Log the full stack in development so debugging is painless.
-  if (env.nodeEnv === 'development') {
+  if (isDev) {
     console.error(err.stack);
   }
 
@@ -12,7 +12,7 @@ const errorHandler = (err, _req, res, _next) => {
     success: false,
     message: err.message || 'An unexpected error occurred',
     // Only expose the stack trace in development.
-    ...(env.nodeEnv === 'development' && { stack: err.stack }),
+    ...(isDev && { stack: err.stack }),
   });
 };
 
