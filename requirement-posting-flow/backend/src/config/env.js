@@ -1,11 +1,9 @@
-
-import 'dotenv/config';
-
-const env = {
-  port: process.env.PORT || 5000,
-  mongoUri: process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/requirement-posting',
-  frontendOrigin: process.env.FRONTEND_ORIGIN || 'http://localhost:3000',
-  nodeEnv: process.env.NODE_ENV || 'development',
-};
-
-export default env;
+// env.js has been removed.
+// dotenv is loaded in server.js via `import 'dotenv/config'`.
+// Use process.env.<VAR_NAME> directly throughout the app.
+//
+// Required variables (set in .env):
+//   MONGO_URI         — MongoDB connection string
+//   PORT              — HTTP port (default: 5000)
+//   FRONTEND_ORIGIN   — Allowed CORS origin (default: http://localhost:3000)
+//   NODE_ENV          — 'development' | 'production'
